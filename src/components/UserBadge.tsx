@@ -6,7 +6,6 @@ import { useBasename } from '@/hooks/useBasename';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
-import { Loader2 } from 'lucide-react';
 
 export function UserBadge() {
   const { open } = useAppKit();

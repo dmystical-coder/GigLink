@@ -15,12 +15,16 @@ const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
 )
 Avatar.displayName = "Avatar"
 
-interface AvatarImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {}
+interface AvatarImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
+  alt?: string;
+}
 
 const AvatarImage = React.forwardRef<HTMLImageElement, AvatarImageProps>(
-  ({ className = '', ...props }, ref) => (
+  ({ className = '', alt = "Avatar", ...props }, ref) => (
+    // eslint-disable-next-line @next/next/no-img-element
     <img
       ref={ref}
+      alt={alt}
       className={`aspect-square h-full w-full ${className}`}
       {...props}
     />

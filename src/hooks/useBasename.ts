@@ -1,5 +1,5 @@
 import { useReadContract } from 'wagmi';
-import { namehash, normalize } from 'viem/ens';
+import { namehash } from 'viem/ens';
 import { L2ResolverAbi } from '@/abis/L2Resolver';
 
 // The Base L2 Resolver Address
@@ -11,6 +11,8 @@ export function useBasename(address: `0x${string}` | undefined) {
     abi: L2ResolverAbi,
     functionName: 'name',
     args: address ? [namehash(`${address.slice(2)}.addr.reverse`)] : undefined,
-    enabled: !!address,
+    query: {
+      enabled: !!address,
+    }
   });
 }

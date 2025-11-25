@@ -3,11 +3,9 @@
 import React from 'react';
 import { useAccount } from 'wagmi';
 import { UserBadge } from './UserBadge';
-import { useBasename } from '@/hooks/useBasename';
 
 export function Navbar() {
   const { address, isConnected } = useAccount();
-  const { data: basename } = useBasename(address);
 
   return (
     <nav className="border-b bg-background">
@@ -17,7 +15,7 @@ export function Navbar() {
         </div>
         <div className="flex items-center space-x-4">
           {isConnected && address && (
-            <UserBadge address={address} basename={basename} />
+            <UserBadge />
           )}
           <appkit-button />
         </div>
