@@ -20,6 +20,7 @@ export const SearchInput: React.FC<SearchInputProps> = ({ value, onChange, place
         placeholder={placeholder}
         value={value}
         onChange={(e) => onChange(e.target.value)}
+        aria-label="Search bounties"
       />
     </div>
   );

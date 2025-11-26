@@ -3,6 +3,9 @@ interface BountyCardHeaderProps {
   issuerAddress: string;
 }
 
+/**
+ * Displays the bounty title and issuer information.
+ */
 export function BountyCardHeader({ title, issuerAddress }: BountyCardHeaderProps) {
   return (
     <div className="flex flex-col gap-2 mb-4">

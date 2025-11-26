@@ -4,6 +4,9 @@ interface BountyRewardProps {
   usdValue: number;
 }
 
+/**
+ * Displays the bounty reward amount in crypto and USD.
+ */
 export function BountyReward({ amount, token, usdValue }: BountyRewardProps) {
   return (
     <div className="flex items-center justify-between bg-slate-50 rounded-lg p-3 border border-slate-100 mb-4">

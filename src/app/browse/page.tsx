@@ -3,10 +3,10 @@
 import React, { useState, useMemo } from 'react';
 import { MOCK_BOUNTIES } from '@/data/mock-bounties';
 import { BountyCard } from '@/components/bounty/BountyCard';
-import { BountyCardHeader } from '@/components/bounty/BountyCardHeader';
 import { BountyCardBadges } from '@/components/bounty/BountyCardBadges';
-import { BountyReward } from '@/components/bounty/BountyReward';
 import { BountyCardFooter } from '@/components/bounty/BountyCardFooter';
+import { BountyCardHeader } from '@/components/bounty/BountyCardHeader';
+import { BountyReward } from '@/components/bounty/BountyReward';
 import { BountyGrid } from '@/components/BountyGrid';
 import { FeedHeader } from '@/components/FeedHeader';
 

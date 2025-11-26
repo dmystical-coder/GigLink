@@ -2,6 +2,7 @@ import React from 'react';
 import { SearchInput } from './SearchInput';
 import { FilterDropdown } from './FilterDropdown';
 import { ToggleGroup } from './ToggleGroup';
+import { SORT_OPTIONS, VIEW_OPTIONS } from '@/constants/sort';
 
 interface FeedHeaderProps {
   searchQuery: string;
@@ -29,12 +30,7 @@ export const FeedHeader: React.FC<FeedHeaderProps> = ({
             label="Sort by"
             value={sortBy}
             onChange={onSortChange}
-            options={[
-              { label: 'Newest First', value: 'newest' },
-              { label: 'Highest Reward', value: 'reward_desc' },
-              { label: 'Lowest Reward', value: 'reward_asc' },
-              { label: 'Ending Soon', value: 'deadline_asc' },
-            ]}
+            options={SORT_OPTIONS}
           />
         </div>
       </div>
@@ -42,10 +38,7 @@ export const FeedHeader: React.FC<FeedHeaderProps> = ({
       <ToggleGroup
         value={viewMode}
         onChange={onViewModeChange}
-        options={[
-          { label: 'All Bounties', value: 'all' },
-          { label: 'My Bounties', value: 'my' },
-        ]}
+        options={VIEW_OPTIONS}
       />
     </div>
   );

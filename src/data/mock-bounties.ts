@@ -1,5 +1,9 @@
 import { Bounty, BountyStatus } from '@/types/bounty';
 
+/**
+ * Mock data for development and testing purposes.
+ * This simulates the data that would eventually come from the smart contract.
+ */
 export const MOCK_BOUNTIES: Bounty[] = [
   // Engineering Tasks
   {

@@ -6,6 +6,9 @@ interface BountyCardFooterProps {
   applicantCount: number;
 }
 
+/**
+ * Displays the time remaining and applicant count for a bounty.
+ */
 export function BountyCardFooter({ deadline, applicantCount }: BountyCardFooterProps) {
   return (
     <div className="flex items-center justify-between pt-4 border-t border-slate-100 mt-auto">
