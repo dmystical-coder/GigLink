@@ -5,6 +5,10 @@ interface BountyCardProps {
   onClick?: () => void;
 }
 
+/**
+ * A container component for displaying bounty information.
+ * Features a hover effect and click handler.
+ */
 export function BountyCard({ children, onClick }: BountyCardProps) {
   return (
     <div 
