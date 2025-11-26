@@ -1,5 +1,8 @@
 export type Token = 'ETH' | 'USDC' | 'DEGEN';
 
+/**
+ * Represents the current status of a bounty.
+ */
 export enum BountyStatus {
   OPEN = 'OPEN',
   ASSIGNED = 'ASSIGNED',
@@ -9,6 +12,9 @@ export enum BountyStatus {
 
 export type BountyDifficulty = 'Beginner' | 'Intermediate' | 'Expert';
 
+/**
+ * Represents a user profile in the system (issuer or applicant).
+ */
 export interface UserProfile {
   id: string;
   name: string;
@@ -16,6 +22,9 @@ export interface UserProfile {
   address: `0x${string}`;
 }
 
+/**
+ * Main Bounty interface representing a task or job.
+ */
 export interface Bounty {
   id: string;
   title: string;
