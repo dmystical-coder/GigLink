@@ -5,6 +5,9 @@ interface BountyCardBadgesProps {
   tags: string[];
 }
 
+/**
+ * Displays status and tags for a bounty with color-coded badges.
+ */
 export function BountyCardBadges({ status, tags }: BountyCardBadgesProps) {
   const statusColors = {
     [BountyStatus.OPEN]: 'bg-green-100 text-green-700 border-green-200',
