@@ -8,7 +8,7 @@ import { BountyCardFooter } from '@/components/bounty/BountyCardFooter';
 import { BountyCardHeader } from '@/components/bounty/BountyCardHeader';
 import { BountyReward } from '@/components/bounty/BountyReward';
 import { BountyGrid } from '@/components/BountyGrid';
-import { FeedHeader } from '@/components/FeedHeader';
+import { FeedHeader } from '@/components/bounty/FeedHeader';
 
 export default function BrowsePage() {
   const [searchQuery, setSearchQuery] = useState('');
