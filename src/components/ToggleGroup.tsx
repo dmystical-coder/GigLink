@@ -23,6 +23,8 @@ export const ToggleGroup: React.FC<ToggleGroupProps> = ({ options, value, onChan
               : 'text-gray-500 hover:text-gray-900'
           }`}
           onClick={() => onChange(option.value)}
+          aria-pressed={value === option.value}
+          aria-label={`View ${option.label}`}
         >
           {option.label}
         </button>
