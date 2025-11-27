@@ -39,6 +39,7 @@ export function ApplyForm({ onSubmit, isSubmitting = false }: ApplyFormProps) {
           placeholder="https://github.com/username/repo"
           {...register('repoUrl')}
           className={errors.repoUrl ? 'border-red-500' : ''}
+          data-testid="repo-url-input"
         />
         {errors.repoUrl && (
           <p className="text-sm text-red-500">{errors.repoUrl.message}</p>
@@ -52,13 +53,14 @@ export function ApplyForm({ onSubmit, isSubmitting = false }: ApplyFormProps) {
           placeholder="Briefly explain your implementation approach..."
           {...register('notes')}
           className={errors.notes ? 'border-red-500 min-h-[120px]' : 'min-h-[120px]'}
+          data-testid="notes-input"
         />
         {errors.notes && (
           <p className="text-sm text-red-500">{errors.notes.message}</p>
         )}
       </div>
 
-      <Button type="submit" className="w-full" disabled={isSubmitting}>
+      <Button type="submit" className="w-full" disabled={isSubmitting} data-testid="submit-application-button">
         {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
         {isSubmitting ? 'Submitting...' : 'Submit Application'}
       </Button>
