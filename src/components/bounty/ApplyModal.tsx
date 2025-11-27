@@ -13,9 +13,11 @@ interface ApplyModalProps {
 export function ApplyModal({ children, trigger, open, onOpenChange }: ApplyModalProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogTrigger asChild>
-        {trigger}
-      </DialogTrigger>
+      {trigger && (
+        <DialogTrigger asChild>
+          {trigger}
+        </DialogTrigger>
+      )}
       <DialogContent className="sm:max-w-[600px]">
         <DialogHeader>
           <DialogTitle>Apply for Bounty</DialogTitle>
