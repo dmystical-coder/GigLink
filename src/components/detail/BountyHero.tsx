@@ -33,6 +33,7 @@ export function BountyHero({ title, issuer, status, createdAt, deadline }: Bount
 
       <div className="flex items-center gap-4 text-sm text-slate-600">
         <div className="flex items-center gap-2">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img 
             src={issuer.avatarUrl} 
             alt={issuer.name} 

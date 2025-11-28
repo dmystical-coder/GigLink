@@ -3,14 +3,14 @@
 import { useState } from 'react';
 import { ApplyButton } from '@/components/bounty/ApplyButton';
 import { ApplyModal } from '@/components/bounty/ApplyModal';
-import { ApplyForm } from '@/components/bounty/ApplyForm';
+import { ApplyForm, ApplyFormValues } from '@/components/bounty/ApplyForm';
 import { useSubmitApplication } from '@/hooks/useSubmitApplication';
 
 export function StickyApplyButton() {
   const [isApplyOpen, setIsApplyOpen] = useState(false);
   const { submitApplication, isSubmitting } = useSubmitApplication();
 
-  const handleSubmit = async (values: any) => {
+  const handleSubmit = async (values: ApplyFormValues) => {
     const success = await submitApplication(values);
     if (success) {
       setIsApplyOpen(false);
