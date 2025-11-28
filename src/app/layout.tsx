@@ -20,6 +20,8 @@ export const metadata: Metadata = {
 import { headers } from "next/headers";
 import { AppKitProvider } from "@/context/AppKitProvider";
 
+import { Toaster } from "@/components/ui/sonner";
+
 export default async function RootLayout({
   children,
 }: Readonly<{
@@ -33,7 +35,10 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <AppKitProvider cookies={cookies}>{children}</AppKitProvider>
+        <AppKitProvider cookies={cookies}>
+          {children}
+          <Toaster />
+        </AppKitProvider>
       </body>
     </html>
   );

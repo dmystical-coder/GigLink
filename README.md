@@ -18,6 +18,8 @@ Unlike traditional freelance platforms, GigLink focuses on speed and sovereignty
 * **Identity First:** Native integration with **Basenames** to verify reputation.
 * **Atomic Escrow:** Bounties are locked on-chain and released only when work is verified.
 * **Zero-Friction Payouts:** Instant settlement on the Base L2 network (low fees, high speed).
+* **Detailed Bounty View:** Rich markdown descriptions, required skills, and reward breakdown.
+* **Web3 Submission Flow:** Connect wallet, switch network, and apply for bounties seamlessly.
 
 ---
 

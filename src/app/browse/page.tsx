@@ -10,7 +10,10 @@ import { BountyReward } from '@/components/bounty/BountyReward';
 import { BountyGrid } from '@/components/BountyGrid';
 import { FeedHeader } from '@/components/bounty/FeedHeader';
 
+import { useRouter } from 'next/navigation';
+
 export default function BrowsePage() {
+  const router = useRouter();
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState('newest');
   const [viewMode, setViewMode] = useState('all');
@@ -77,7 +80,7 @@ export default function BrowsePage() {
             {filteredBounties.map((bounty) => (
               <BountyCard
                 key={bounty.id}
-                onClick={() => console.log('Clicked bounty:', bounty.id)}
+                onClick={() => router.push(`/bounty/${bounty.id}`)}
               >
                 <BountyCardHeader title={bounty.title} issuerAddress={bounty.issuer.address} />
                 <BountyCardBadges status={bounty.status} tags={bounty.tags} />
