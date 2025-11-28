@@ -32,20 +32,21 @@ export function SubmissionList({ submissions }: SubmissionListProps) {
       {submissions.map((submission) => (
         <div
           key={submission.id}
-          className="flex items-center justify-between p-4 bg-white border rounded-xl hover:border-blue-200 transition-colors"
+          className="flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-white border rounded-xl hover:border-blue-200 transition-colors gap-4"
         >
           <div>
-            <h3 className="font-semibold text-slate-900">
+            <h3 className="font-semibold text-slate-900 line-clamp-1">
               {submission.bountyTitle}
             </h3>
-            <div className="flex items-center gap-3 text-sm text-slate-500 mt-1">
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-slate-500 mt-1">
               <span>Submitted {formatDistanceToNow(submission.submittedAt)} ago</span>
-              <span>•</span>
+              <span className="hidden sm:inline">•</span>
               <span>Reward: {submission.bountyReward}</span>
             </div>
           </div>
 
-          <div>
+          <div className="flex items-center justify-between sm:justify-end w-full sm:w-auto border-t sm:border-t-0 pt-3 sm:pt-0 border-slate-100">
+            <span className="text-sm font-medium text-slate-500 sm:hidden">Status:</span>
             <StatusBadge status={submission.status} />
           </div>
         </div>
