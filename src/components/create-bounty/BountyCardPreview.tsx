@@ -7,10 +7,10 @@ import { BountyCardBadges } from '@/components/bounty/BountyCardBadges';
 import { BountyReward } from '@/components/bounty/BountyReward';
 import { BountyCardFooter } from '@/components/bounty/BountyCardFooter';
 import { BountyStatus } from '@/types/bounty';
-import { CreateBountyFormValues } from '@/lib/schemas/bounty';
+import { BountyFormData } from './WizardProvider';
 
 interface BountyCardPreviewProps {
-  data: Partial<CreateBountyFormValues>; // Partial because form might be incomplete
+  data: Partial<BountyFormData>;
 }
 
 export function BountyCardPreview({ data }: BountyCardPreviewProps) {

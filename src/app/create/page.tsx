@@ -5,6 +5,7 @@ import { WizardProvider, useWizard } from '@/components/create-bounty/WizardProv
 import { CreateBountyForm } from '@/components/create-bounty/CreateBountyForm';
 import { PageHeader } from '@/components/PageHeader';
 import { BountyCardPreview } from '@/components/create-bounty/BountyCardPreview';
+import { PreviewToggle } from '@/components/create-bounty/PreviewToggle';
 
 function CreateBountyContent() {
   const [mode, setMode] = useState<'edit' | 'preview'>('edit');
