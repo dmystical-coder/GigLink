@@ -1,6 +1,7 @@
 import { PageHeader } from '@/components/PageHeader';
 import { BountyList, Bounty } from '@/components/dashboard/BountyList';
 import { SubmissionList, Submission } from '@/components/dashboard/SubmissionList';
+import { StatsOverview } from '@/components/dashboard/StatsOverview';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Plus } from 'lucide-react';
@@ -82,6 +83,8 @@ export default function DashboardPage() {
       />
       
       <div className="mt-8">
+        <StatsOverview />
+        
         <Tabs defaultValue="bounties" className="space-y-6">
           <TabsList>
             <TabsTrigger value="bounties">My Bounties</TabsTrigger>
