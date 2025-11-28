@@ -1,11 +1,14 @@
+'use client';
+
+import { useState } from 'react';
 import { PageHeader } from '@/components/PageHeader';
 import { BountyList, Bounty } from '@/components/dashboard/BountyList';
 import { SubmissionList, Submission } from '@/components/dashboard/SubmissionList';
 import { StatsOverview } from '@/components/dashboard/StatsOverview';
+import { DashboardTabs } from '@/components/dashboard/DashboardTabs';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Plus } from 'lucide-react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 // Mock Data
 const MOCK_BOUNTIES: Bounty[] = [
@@ -63,6 +66,8 @@ const MOCK_SUBMISSIONS: Submission[] = [
 ];
 
 export default function DashboardPage() {
+  const [activeTab, setActiveTab] = useState('applications');
+
   return (
     <div className="container mx-auto py-8 px-4 sm:px-6 lg:px-8">
       <PageHeader
@@ -85,28 +90,31 @@ export default function DashboardPage() {
       <div className="mt-8">
         <StatsOverview />
         
-        <Tabs defaultValue="bounties" className="space-y-6">
-          <TabsList>
-            <TabsTrigger value="bounties">My Bounties</TabsTrigger>
-            <TabsTrigger value="submissions">My Submissions</TabsTrigger>
-          </TabsList>
+        <DashboardTabs 
+          activeTab={activeTab}
+          onChange={setActiveTab}
+          tabs={[
+            { id: 'applications', label: 'My Applications', count: MOCK_SUBMISSIONS.length },
+            { id: 'listings', label: 'My Listings', count: MOCK_BOUNTIES.length },
+            { id: 'history', label: 'Payment History' }
+          ]}
+        />
+
+        <div className="min-h-[300px] animate-in fade-in slide-in-from-bottom-2 duration-500">
+          {activeTab === 'applications' && (
+             <SubmissionList submissions={MOCK_SUBMISSIONS} />
+          )}
           
-          <TabsContent value="bounties" className="space-y-6">
-            <div className="flex items-center justify-between">
-              <h2 className="text-xl font-semibold text-slate-900">Recent Bounties</h2>
-              <Button variant="link" className="text-blue-600">View All</Button>
-            </div>
-            <BountyList bounties={MOCK_BOUNTIES} />
-          </TabsContent>
-          
-          <TabsContent value="submissions" className="space-y-6">
-            <div className="flex items-center justify-between">
-              <h2 className="text-xl font-semibold text-slate-900">Recent Submissions</h2>
-              <Button variant="link" className="text-blue-600">View All</Button>
-            </div>
-            <SubmissionList submissions={MOCK_SUBMISSIONS} />
-          </TabsContent>
-        </Tabs>
+          {activeTab === 'listings' && (
+             <BountyList bounties={MOCK_BOUNTIES} />
+          )}
+
+          {activeTab === 'history' && (
+             <div className="text-center py-12 border rounded-xl bg-slate-50 text-slate-500">
+               Payment history coming soon...
+             </div>
+          )}
+        </div>
       </div>
     </div>
   );
