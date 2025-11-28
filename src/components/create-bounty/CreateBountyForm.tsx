@@ -2,12 +2,12 @@
 
 import { useWizard } from './WizardProvider';
 import { BasicInfoStep } from './steps/BasicInfoStep';
+import { DescriptionStep } from './steps/DescriptionStep';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/Card';
 import { Button } from '@/components/Button';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Placeholder steps
-const DescriptionStep = () => <div>Description Step (Coming Soon)</div>;
 const RewardsStep = () => <div>Rewards Step (Coming Soon)</div>;
 const ReviewStep = () => <div>Review Step (Coming Soon)</div>;
 
