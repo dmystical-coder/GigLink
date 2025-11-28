@@ -16,7 +16,7 @@ interface StatusBadgeProps {
 }
 
 export function StatusBadge({ status }: StatusBadgeProps) {
-  const styles: Record<string, { color: string; icon: any; label: string }> = {
+  const styles: Record<string, { color: string; icon: React.ElementType; label: string }> = {
     // Application Statuses
     PENDING: {
       color: 'text-yellow-700 bg-yellow-50 border-yellow-200',
