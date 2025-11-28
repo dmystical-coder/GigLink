@@ -5,13 +5,13 @@ import { ApplyFormValues } from '@/components/bounty/ApplyForm';
 export function useSubmitApplication() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const submitApplication = async (values: ApplyFormValues) => {
+  const submitApplication = async (_values: ApplyFormValues) => {
     setIsSubmitting(true);
     try {
       // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 2000));
       
-      console.log('Submitted:', values);
+
       toast.success('Application submitted successfully!');
       return true;
     } catch (error) {
