@@ -2,7 +2,6 @@
 
 import { useWizard } from '../WizardProvider';
 import { Label } from '@/components/ui/label';
-import { Input } from '@/components/ui/input';
 import { TokenAmountInput } from '../TokenAmountInput';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
@@ -28,6 +27,9 @@ export function RewardsStep() {
             setDate={(date) => updateFormData({ deadline: date })}
             placeholder="Select deadline"
           />
+          <p className="text-xs text-muted-foreground">
+            When should this task be completed?
+          </p>
         </div>
 
         <div className="space-y-2">
@@ -45,6 +47,9 @@ export function RewardsStep() {
               <SelectItem value="Expert">Expert</SelectItem>
             </SelectContent>
           </Select>
+          <p className="text-xs text-muted-foreground">
+            Estimated complexity of the task.
+          </p>
         </div>
       </div>
     </div>
