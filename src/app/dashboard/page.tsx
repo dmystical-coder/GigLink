@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { PageHeader } from '@/components/PageHeader';
 import { BountyList, Bounty } from '@/components/dashboard/BountyList';
 import { SubmissionList, Submission } from '@/components/dashboard/SubmissionList';
@@ -8,7 +9,8 @@ import { StatsOverview } from '@/components/dashboard/StatsOverview';
 import { DashboardTabs } from '@/components/dashboard/DashboardTabs';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { Plus } from 'lucide-react';
+import { Plus, FolderOpen, Sparkles } from 'lucide-react';
+import { EmptyState } from '@/components/ui/EmptyState';
 
 // Mock Data
 import { getMyBounties } from '@/data/mock-bounties';
@@ -42,6 +44,7 @@ const MOCK_SUBMISSIONS: Submission[] = [
 ];
 
 export default function DashboardPage() {
+  const router = useRouter();
   const [activeTab, setActiveTab] = useState('applications');
   const [bounties, setBounties] = useState<Bounty[]>(getMyBounties());
 
@@ -91,15 +94,35 @@ export default function DashboardPage() {
 
         <div className="min-h-[300px] animate-in fade-in slide-in-from-bottom-2 duration-500">
           {activeTab === 'applications' && (
-             <SubmissionList submissions={MOCK_SUBMISSIONS} />
+             MOCK_SUBMISSIONS.length === 0 ? (
+               <EmptyState
+                 icon={FolderOpen}
+                 title="No active applications"
+                 description="You haven't applied to any bounties yet. Browse the feed to find your first gig!"
+                 actionLabel="Browse Bounties"
+                 onAction={() => router.push('/')}
+               />
+             ) : (
+               <SubmissionList submissions={MOCK_SUBMISSIONS} />
+             )
           )}
           
           {activeTab === 'listings' && (
-             <BountyList 
-               bounties={bounties} 
-               onMarkComplete={handleMarkComplete}
-               onCancelBounty={handleCancelBounty}
-             />
+             bounties.length === 0 ? (
+               <EmptyState
+                 icon={Sparkles}
+                 title="Create your first bounty"
+                 description="Need help with a task? Publish a bounty to the network and get work done fast."
+                 actionLabel="Create Bounty"
+                 onAction={() => router.push('/create')}
+               />
+             ) : (
+               <BountyList 
+                 bounties={bounties} 
+                 onMarkComplete={handleMarkComplete}
+                 onCancelBounty={handleCancelBounty}
+               />
+             )
           )}
 
           {activeTab === 'history' && (
