@@ -6,10 +6,18 @@
     "dev": "next dev",
     "build": "next build --webpack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "compile": "cd smart-contracts && hardhat compile",
+    "test:contracts": "cd smart-contracts && hardhat test",
+    "deploy:local": "cd smart-contracts && hardhat run scripts/deploy.ts --network localhost",
+    "deploy:base-sepolia": "cd smart-contracts && hardhat run scripts/deploy-with-config.ts --network baseSepolia",
+    "deploy:base": "cd smart-contracts && hardhat run scripts/deploy-with-config.ts --network base",
+    "verify": "cd smart-contracts && hardhat verify",
+    "node": "cd smart-contracts && hardhat node"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
+    "@openzeppelin/contracts": "^5.0.2",
     "@radix-ui/react-dialog": "^1.1.15",
     "@radix-ui/react-dropdown-menu": "^2.1.16",
     "@radix-ui/react-label": "^2.1.8",
@@ -40,13 +48,26 @@
     "zod": "^4.1.13"
   },
   "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^2.0.0",
+    "@nomicfoundation/hardhat-ethers": "^3.0.0",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.0",
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.0.0",
     "@tailwindcss/postcss": "^4",
+    "@typechain/ethers-v6": "^0.5.1",
+    "@typechain/hardhat": "^9.0.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "chai": "^4.3.0",
+    "dotenv": "^16.4.5",
     "eslint": "^9",
     "eslint-config-next": "16.0.4",
     "eslint-config-prettier": "^9.1.0",
+    "ethers": "^6.13.0",
+    "hardhat": "^2.22.0",
+    "hardhat-gas-reporter": "^1.0.10",
+    "solidity-coverage": "^0.8.11",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
