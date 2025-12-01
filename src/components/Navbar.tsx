@@ -8,7 +8,7 @@ export function Navbar() {
   const { address, isConnected } = useAccount();
 
   return (
-    <nav className="border-b bg-background">
+    <nav className="border-b bg-background sticky top-0 z-50">
       <div className="container mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         <div className="flex items-center gap-8">
           <Link href="/" className="text-lg sm:text-xl font-bold">

@@ -36,7 +36,7 @@ export function UserBadge() {
       <div className="relative">
         <Avatar className="h-8 w-8 border-2 border-white shadow-sm">
           {/* We can use a blochie or specialized avatar service here later */}
-          <AvatarImage src={`https://avatars.jakerunzer.com/${address}`} />
+          <AvatarImage src={`https://avatars.jakerunzer.com/${address}`} alt="User Avatar" />
           <AvatarFallback className="bg-blue-600 text-white text-xs">
             {initials}
           </AvatarFallback>

@@ -55,6 +55,7 @@ import { headers } from "next/headers";
 import { AppKitProvider } from "@/context/AppKitProvider";
 
 import { Toaster } from "@/components/ui/sonner";
+import { NetworkBanner } from "@/components/NetworkBanner";
 
 export default async function RootLayout({
   children,
@@ -70,6 +71,7 @@ export default async function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <AppKitProvider cookies={cookies}>
+          <NetworkBanner />
           {children}
           <Toaster />
         </AppKitProvider>

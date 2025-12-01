@@ -75,7 +75,7 @@ export function BountyList({ bounties, onMarkComplete, onCancelBounty }: BountyL
 
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon" className="h-8 w-8 -mr-2">
+                <Button variant="ghost" size="icon" className="h-8 w-8 -mr-2" aria-label="More options">
                   <MoreHorizontal className="w-4 h-4" />
                 </Button>
               </DropdownMenuTrigger>

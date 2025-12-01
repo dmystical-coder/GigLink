@@ -25,13 +25,19 @@ export function ApplyForm({ onSubmit, isSubmitting = false }: ApplyFormProps) {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<ApplyFormValues>({
     resolver: zodResolver(formSchema),
   });
 
+  const handleFormSubmit = async (data: ApplyFormValues) => {
+    await onSubmit(data);
+    reset();
+  };
+
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+    <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-6">
       <div className="space-y-2">
         <Label htmlFor="repoUrl">GitHub Repository URL</Label>
         <Input
