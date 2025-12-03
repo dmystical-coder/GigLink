@@ -26,10 +26,7 @@ export const createBountySchema = z.object({
     .positive({ message: 'Reward must be greater than 0.' })
     .or(z.literal('')), // Handles empty input state gracefully before submit
 
-  rewardToken: z
-    .enum(SUPPORTED_TOKENS, {
-      errorMap: () => ({ message: 'Please select a valid token.' }),
-    }),
+  rewardToken: z.enum(['ETH', 'USDC', 'DEGEN']),
 
   // Date Validation
   deadline: z

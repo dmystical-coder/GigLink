@@ -1,12 +1,13 @@
 {
   "name": "giglink",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build --webpack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint .",
+    "validate-build": "npm run lint && npm run build"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -21,6 +22,7 @@
     "@reown/appkit-adapter-wagmi": "^1.0.0",
     "@tanstack/react-query": "^5.0.0",
     "@wagmi/core": "^3.0.0",
+    "canvas-confetti": "^1.9.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^3.6.0",
@@ -41,6 +43,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/canvas-confetti": "^1.9.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

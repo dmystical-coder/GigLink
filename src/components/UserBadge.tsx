@@ -1,5 +1,5 @@
 'use client';
-
+import { toast } from 'sonner';
 import { useAppKit } from '@reown/appkit/react';
 import { useAccount } from 'wagmi';
 import { useBasename } from '@/hooks/useBasename';
@@ -26,6 +26,14 @@ export function UserBadge() {
   const initials = basename 
     ? basename.slice(0, 2).toUpperCase() 
     : address.slice(0, 2).toUpperCase();
+
+  const handleCopy = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (address) {
+      navigator.clipboard.writeText(address);
+      toast.success('Address copied to clipboard');
+    }
+  };
 
   return (
     <Button 
@@ -54,8 +62,11 @@ export function UserBadge() {
             displayName
           )}
         </span>
-        <span className="text-[10px] text-slate-500 font-medium">
-          {basename ? 'Verified Basename' : 'Connected'}
+        <span 
+          className="text-[10px] text-slate-500 font-medium hover:text-blue-600 cursor-pointer"
+          onClick={handleCopy}
+        >
+          {basename ? 'Verified Basename' : 'Copy Address'}
         </span>
       </div>
     </Button>

@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { PageHeader } from '@/components/PageHeader';
-import { BountyList, Bounty } from '@/components/dashboard/BountyList';
+import { BountyList } from '@/components/dashboard/BountyList';
+import { Bounty, BountyStatus } from '@/types/bounty';
 import { SubmissionList, Submission } from '@/components/dashboard/SubmissionList';
 import { StatsOverview } from '@/components/dashboard/StatsOverview';
 import { DashboardTabs } from '@/components/dashboard/DashboardTabs';
@@ -50,13 +51,13 @@ export default function DashboardPage() {
 
   const handleMarkComplete = (id: string) => {
     setBounties(prev => prev.map(bounty => 
-      bounty.id === id ? { ...bounty, status: 'COMPLETED' } : bounty
+      bounty.id === id ? { ...bounty, status: BountyStatus.PAID } : bounty
     ));
   };
 
   const handleCancelBounty = (id: string) => {
     setBounties(prev => prev.map(bounty => 
-      bounty.id === id ? { ...bounty, status: 'CANCELLED' } : bounty
+      bounty.id === id ? { ...bounty, status: BountyStatus.CANCELLED } : bounty
     ));
   };
 

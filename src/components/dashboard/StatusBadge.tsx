@@ -7,9 +7,9 @@ import {
   CircleDashed
 } from 'lucide-react';
 
-// You can move this type to your global types file later if needed
+import { BountyStatus } from '@/types/bounty';
+
 export type ApplicationStatus = 'PENDING' | 'IN_REVIEW' | 'ACCEPTED' | 'REJECTED' | 'PAID';
-export type BountyStatus = 'OPEN' | 'IN_PROGRESS' | 'COMPLETED' | 'CANCELLED';
 
 interface StatusBadgeProps {
   status: ApplicationStatus | BountyStatus;
@@ -38,29 +38,30 @@ export function StatusBadge({ status }: StatusBadgeProps) {
       icon: XCircle,
       label: 'Declined'
     },
-    PAID: {
-      color: 'text-emerald-700 bg-emerald-50 border-emerald-200',
-      icon: Banknote,
-      label: 'Payment Sent'
-    },
+
     
     // Bounty Statuses
-    OPEN: {
+    [BountyStatus.OPEN]: {
       color: 'text-green-700 bg-green-50 border-green-200',
       icon: CircleDashed,
       label: 'Open'
     },
-    IN_PROGRESS: { // Reusing IN_REVIEW style but different label if needed, or keeping same
+    [BountyStatus.ASSIGNED]: { 
       color: 'text-blue-700 bg-blue-50 border-blue-200',
       icon: Clock,
       label: 'In Progress'
     },
-    COMPLETED: {
-      color: 'text-slate-700 bg-slate-50 border-slate-200',
-      icon: CheckCircle2,
-      label: 'Completed'
+    [BountyStatus.PAID]: {
+      color: 'text-emerald-700 bg-emerald-50 border-emerald-200',
+      icon: Banknote,
+      label: 'Paid'
     },
-    CANCELLED: {
+    [BountyStatus.SUBMITTED]: {
+      color: 'text-purple-700 bg-purple-50 border-purple-200',
+      icon: Loader2,
+      label: 'Submitted'
+    },
+    [BountyStatus.CANCELLED]: {
       color: 'text-red-700 bg-red-50 border-red-200',
       icon: XCircle,
       label: 'Cancelled'

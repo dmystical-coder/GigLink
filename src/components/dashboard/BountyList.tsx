@@ -10,19 +10,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { StatusBadge, BountyStatus } from './StatusBadge';
-
-export type { BountyStatus };
-
-export interface Bounty {
-  id: string;
-  title: string;
-  status: BountyStatus;
-  rewardAmount: number;
-  rewardToken: string;
-  createdAt: Date;
-  applicantCount: number;
-}
+import { Bounty, BountyStatus } from '@/types/bounty';
+import { StatusBadge } from './StatusBadge';
 
 interface BountyListProps {
   bounties: Bounty[];
@@ -66,7 +55,7 @@ export function BountyList({ bounties, onMarkComplete, onCancelBounty }: BountyL
           <div className="flex items-center justify-between sm:justify-end gap-4 w-full sm:w-auto pl-0 sm:pl-4 border-t sm:border-t-0 pt-4 sm:pt-0 border-slate-100">
             <div className="flex items-center gap-3 sm:block sm:text-right">
               <div className="font-bold text-slate-900">
-                {bounty.rewardAmount} {bounty.rewardToken}
+                {bounty.reward.amount} {bounty.reward.token}
               </div>
               <div className="sm:mt-1 flex sm:justify-end">
                 <StatusBadge status={bounty.status} />
@@ -82,7 +71,7 @@ export function BountyList({ bounties, onMarkComplete, onCancelBounty }: BountyL
               <DropdownMenuContent align="end">
                 <DropdownMenuItem>View Details</DropdownMenuItem>
                 <DropdownMenuItem>Edit Bounty</DropdownMenuItem>
-                {bounty.status !== 'COMPLETED' && bounty.status !== 'CANCELLED' && onMarkComplete && (
+                {bounty.status !== BountyStatus.PAID && bounty.status !== BountyStatus.CANCELLED && onMarkComplete && (
                   <DropdownMenuItem 
                     className="text-green-600 font-medium"
                     onClick={() => onMarkComplete(bounty.id)}
@@ -90,7 +79,7 @@ export function BountyList({ bounties, onMarkComplete, onCancelBounty }: BountyL
                     Mark as Complete
                   </DropdownMenuItem>
                 )}
-                {bounty.status !== 'CANCELLED' && bounty.status !== 'COMPLETED' && onCancelBounty && (
+                {bounty.status !== BountyStatus.CANCELLED && bounty.status !== BountyStatus.PAID && onCancelBounty && (
                   <DropdownMenuItem 
                     className="text-red-600"
                     onClick={() => onCancelBounty(bounty.id)}

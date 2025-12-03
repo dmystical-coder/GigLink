@@ -7,6 +7,8 @@
 ![Network](https://img.shields.io/badge/network-Base_Mainnet-0052FF.svg)
 ![Reown](https://img.shields.io/badge/built_with-Reown_AppKit-3396FF.svg)
 
+[**Live Demo**](https://giglink.vercel.app) | [**Report Bug**](https://github.com/your-username/giglink/issues) | [**Request Feature**](https://github.com/your-username/giglink/issues)
+
 ## 📖 About
 
 **GigLink** is a lightweight, decentralized task marketplace built on **Base**. It allows developers, designers, and creators to post "atomic" tasks (micro-bounties) and get paid instantly in crypto upon completion.
