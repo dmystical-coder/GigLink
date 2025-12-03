@@ -8,6 +8,7 @@ export enum BountyStatus {
   ASSIGNED = 'ASSIGNED',
   SUBMITTED = 'SUBMITTED',
   PAID = 'PAID',
+  CANCELLED = 'CANCELLED',
 }
 
 export type BountyDifficulty = 'Beginner' | 'Intermediate' | 'Expert';

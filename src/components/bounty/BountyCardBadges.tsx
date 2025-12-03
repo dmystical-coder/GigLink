@@ -14,6 +14,7 @@ export function BountyCardBadges({ status, tags }: BountyCardBadgesProps) {
     [BountyStatus.ASSIGNED]: 'bg-yellow-100 text-yellow-700 border-yellow-200',
     [BountyStatus.PAID]: 'bg-slate-100 text-slate-600 border-slate-200',
     [BountyStatus.SUBMITTED]: 'bg-purple-100 text-purple-700 border-purple-200',
+    [BountyStatus.CANCELLED]: 'bg-red-100 text-red-700 border-red-200',
   };
 
   return (
